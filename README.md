@@ -6,6 +6,10 @@ For a fantastic example of the sunburst vis, please see the [coffee flavor wheel
 
 This gem is in production use on [Artful.ly](http://www.artful.ly).  We'll have a full end-to-end example (including js) soon on [Artful.ly open source](http://www.artful.ly/opensource)
 
+## Install
+
+    gem install slicer
+
 ## Usage
 
 Slicer needs the following as input:
