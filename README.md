@@ -60,7 +60,7 @@ If you have more procs, pass them in.  They'll get sliced in the order oyu provi
 ## TODO
 
 * A more thorough example
-* Better slice
+* Better coloring
 
 ## Credits
 
