@@ -1,6 +1,6 @@
 # Slicer
 
-A gem to slice your data and present it in such a way to to be consumed by d3.js, specifically the sunburst visualization (although there's no reason it couldn't be consumed by some other vis).
+A gem to slice your data and present it in such a way so as to be consumed by d3.js, specifically the sunburst visualization (although there's no reason it couldn't be consumed by some other vis).
 
 For a fantastic example of the sunburst vis, please see the [coffee flavor wheel](http://www.jasondavies.com/coffee-wheel/)  Go look at that now and the rest of this README will make a lot more sense.
 
@@ -15,12 +15,12 @@ This gem is in production use on [Artful.ly](http://www.artful.ly).  We'll have 
 Slicer needs the following as input:
 
 * A root slice (pass nil and Slicer will create one for you)
-* A list of things on which to operate.  These can be whatever your system is interested in: items, tickets, widgets, metrics, whatever.
-* A list of Proc objects to use to act on those things
+* An Array of things on which to operate.  These can be whatever your system is interested in: items, tickets, widgets, metrics, whatever.
+* An Array of Proc objects to use to act on those things
 
 In return, slicer will give you:
 
-* A Slice class, with children.  The root Slice class represents the innermost ring of the vis.  Children are the outerrings.
+* A Slice object, with children.  The root Slice class represents the innermost ring of the vis.  Children are the outer rings.
 
 ## Your Procs
 
@@ -53,7 +53,7 @@ And you would pass this proc to Slicer
 
   Slicer.slice(Slice.new("All Sales"), purchased_items, [payment_method_proc])
 
-If you have more procs, pass them in.  They'll get sliced in the order oyu provide.
+If you have more procs, pass them in.  They'll get sliced in the order you provide.
 
   Slicer.slice(Slice.new("All Sales"), purchased_items, [payment_method_proc, location_proc, big_spender_proc])
 
