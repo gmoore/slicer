@@ -6,19 +6,34 @@ class Slicer
   # { :general_admission => some_things, :vip => some_other_things }
   #
 
-  cattr_accessor :color
-  @@color = 0x8B0000
+  cattr_accessor :colors
+  @@colors = ["#00B85C",
+              "#00CC66",
+              "#19D175",
+              "#33D685",
+              "#4DDB94",
+              "#66E0A3",
+              "#80E6B2",
+              "#99EBC2",
+              "#B2F0D1",
+              "#CCF5E0",
+              "#E6FAF0",
+              "#0066CC",
+              "#1975D1",
+              "#3385D6",
+              "#4D94DB",
+              "#66A3E0",
+              "#80B2E6",
+              "#99C2EB",
+              "#B2D1F0",
+              "#CCE0F5",
+              "#E6F0FA"]
 
-  def self.html_color(hex)
-    "#%06x" % hex
-  end
+  @@color_index = 0
 
-  def self.darker
-    @@color = @@color - 0x111111
-  end
-
-  def self.lighter
-    @@color = @@color + 0x001C07
+  def self.pop_color
+    @@color_index = (@@color_index == @@colors.length-1) ? @@color_index = 0 : @@color_index + 1
+    @@colors[@@color_index]
   end
 
   def self.slice(root_slice, things, procs, current_depth=0)
@@ -30,8 +45,7 @@ class Slicer
       Array.wrap(map.keys).each do |kee|
         current_slice = Slice.new(kee)
         if(procs.length == current_depth+1)
-          current_slice.color = html_color(@@color)
-          lighter
+          current_slice.color = pop_color
           current_slice.value = map[kee].length
         end
         root_slice.children << slice(current_slice, map[kee], procs, current_depth+1)
