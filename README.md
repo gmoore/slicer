@@ -44,18 +44,18 @@ For example, say you're slicing up purchased_items by payment method.  Your proc
     
 This proc returns something like
 
-  {
-    :credit_card  => some_items,
-    :cash     => some_other_items
-  }
+    {
+      :credit_card  => some_items,
+      :cash     => some_other_items
+    }
     
 And you would pass this proc to Slicer
 
-  Slicer.slice(Slice.new("All Sales"), purchased_items, [payment_method_proc])
+    Slicer.slice(Slice.new("All Sales"), purchased_items, [payment_method_proc])
 
 If you have more procs, pass them in.  They'll get sliced in the order you provide.
 
-  Slicer.slice(Slice.new("All Sales"), purchased_items, [payment_method_proc, location_proc, big_spender_proc])
+    Slicer.slice(Slice.new("All Sales"), purchased_items, [payment_method_proc, location_proc, big_spender_proc])
 
 ## TODO
 
