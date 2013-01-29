@@ -1,6 +1,8 @@
+require File.expand_path('../lib/slicer/version', __FILE__)
+
 Gem::Specification.new do |s|
   s.name        = 'slicer'
-  s.version     = '0.0.1'
+  s.version     = Slicer::VERSION
   s.date        = '2013-01-26'
   s.summary     = "Slicing and dicing for d3 visualizations"
   s.description = "Slicing and dicing for d3 visualizations"
